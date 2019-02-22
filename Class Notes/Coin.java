@@ -3,7 +3,7 @@ import java.util.Collections;
 /**
 A coin with a monetary value.
  */
-public class Coin implements Comparable
+public class Coin implements Comparable<Coin>
 {
     private double value;
     private String name;
@@ -38,10 +38,8 @@ public class Coin implements Comparable
     }
 
     @Override
-    public int compareTo(Object otherObject)
+    public int compareTo(Coin other)
     {
-        Coin other = (Coin)otherObject;
-        
         if(this.value > other.value)
         {
             return 1;
