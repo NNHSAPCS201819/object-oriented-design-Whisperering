@@ -1,5 +1,4 @@
 import javax.swing.JFrame;
-
 public class TriangleFrame extends JFrame
 {
     private TriangleComponent component;
@@ -18,7 +17,6 @@ public class TriangleFrame extends JFrame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
-    
 
     public static void main(String [] args)
     {

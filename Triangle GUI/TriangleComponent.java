@@ -10,10 +10,14 @@ import java.awt.event.MouseListener;
 public class TriangleComponent extends JComponent
 {
     private static final int MAX_POINTS = 3;
-
+    private int clicks;
+    
     public TriangleComponent()
     {
-        this.addMouseListener( new MouseClickListener());
+        MouseListener listener = new MouseClickListener();
+        this.clicks = 0;
+        this.addMouseListener(listener);
+        this.addMouseListener(listener);
     }
 
     @Override
@@ -21,12 +25,16 @@ public class TriangleComponent extends JComponent
     {  
         super.paintComponent( g );
         Graphics2D g2 = (Graphics2D) g;
-
+        
     }
     public class MouseClickListener implements MouseListener
     {
         public void mouseClicked( MouseEvent event )
         {
+            System.out.println("Mouse has been clicked");
+            System.out.println("(" + event.getX() + ", " + event.getY() + ")");
+            clicks++;
+            System.out.println(clicks);
         }
 
         public void mouseEntered( MouseEvent event )
@@ -46,4 +54,5 @@ public class TriangleComponent extends JComponent
         }
     }
 
+    
 }
