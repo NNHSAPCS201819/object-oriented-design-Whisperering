@@ -11,12 +11,12 @@ public class TriangleComponent extends JComponent
 {
     private static final int MAX_POINTS = 3;
     private int clicks;
-    
+    private int x;
+    private int y;
     public TriangleComponent()
     {
         MouseListener listener = new MouseClickListener();
         this.clicks = 0;
-        this.addMouseListener(listener);
         this.addMouseListener(listener);
     }
 
@@ -25,7 +25,24 @@ public class TriangleComponent extends JComponent
     {  
         super.paintComponent( g );
         Graphics2D g2 = (Graphics2D) g;
-        
+        if(clicks == 1)
+        {
+            Ellipse2D.Double point = new Ellipse2D.Double(x - 15,
+                    y - 15, 30, 30);
+            g2.draw(point);
+        }
+        else if(clicks == 2)
+        {
+            Ellipse2D.Double point2 = new Ellipse2D.Double(x - 15,
+                    y - 15, 30, 30);
+            g2.draw(point2);
+        }
+        else if(clicks == 3)
+        {
+        }
+        else
+        {
+        }
     }
     public class MouseClickListener implements MouseListener
     {
@@ -33,26 +50,23 @@ public class TriangleComponent extends JComponent
         {
             System.out.println("Mouse has been clicked");
             System.out.println("(" + event.getX() + ", " + event.getY() + ")");
-            clicks++;
-            System.out.println(clicks);
+            if(clicks < MAX_POINTS)
+            {
+                clicks++;
+            }
+            else
+            {
+                clicks = 0;
+            }
         }
 
-        public void mouseEntered( MouseEvent event )
-        {
-        }
+        public void mouseEntered( MouseEvent event ){}
 
-        public void mouseExited( MouseEvent event )
-        {
-        }
+        public void mouseExited( MouseEvent event ){}
 
-        public void mousePressed( MouseEvent event )
-        {
-        }
+        public void mousePressed( MouseEvent event ){}
 
-        public void mouseReleased( MouseEvent event )
-        {
-        }
+        public void mouseReleased( MouseEvent event ){}
     }
 
-    
 }
