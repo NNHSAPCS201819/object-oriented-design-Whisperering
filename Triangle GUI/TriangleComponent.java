@@ -48,9 +48,21 @@ public class TriangleComponent extends JComponent
         }
         else if(clicks == 3)
         {
-        }
-        else
-        {
+            Ellipse2D.Double point1 = new Ellipse2D.Double(p1x - 5,
+                    p1y - 5, 10, 10);
+            Ellipse2D.Double point2 = new Ellipse2D.Double(p2x - 5,
+                    p2y - 5, 10, 10);
+            Ellipse2D.Double point3 = new Ellipse2D.Double(p3x - 5,
+                    p3y - 5, 10, 10);
+            Line2D.Double line1 = new Line2D.Double(p1x, p1y, p2x, p2y);
+            Line2D.Double line2 = new Line2D.Double(p2x, p2y, p3x, p3y);
+            Line2D.Double line3 = new Line2D.Double(p3x, p3y, p1x, p1y);
+            g2.draw(point1);
+            g2.draw(point2);
+            g2.draw(point3);
+            g2.draw(line1);
+            g2.draw(line2);
+            g2.draw(line3);
         }
     }
     
@@ -59,17 +71,17 @@ public class TriangleComponent extends JComponent
         if(clicks == 1)
         {
             p1x = x;
-            p1x = y;
+            p1y = y;
         }
         else if(clicks == 2)
         {
             p2x = x;
-            p2x = y;
+            p2y = y;
         }
         else if(clicks == 3)
         {
             p3x = x;
-            p3x = y;
+            p3y = y;
         }
     }
     
