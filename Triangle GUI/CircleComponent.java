@@ -1,4 +1,5 @@
-import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.geom.Ellipse2D;
 /**
  * Write a description of class CircleComponent here.
  *
@@ -7,13 +8,13 @@ import javax.swing.JLabel;
  */
 public class CircleComponent
 {
-    // instance variables - replace the example below with your own
+    private Ellipse2D.Double circle;
     /**
      * Constructor for objects of class CircleComponent
      */
-    public CircleComponent()
+    public CircleComponent(int xCd, int yCd, int radius)
     {
-        // initialise instance variables
-        //this.setPreferredSize(new Dimension(500, 500));
+        circle = new Ellipse2D.Double(xCd, yCd, radius, radius);
     }
+
 }

@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 /**
  * Write a description of class CircleFrame here.
  *
@@ -15,6 +16,9 @@ public class CircleFrame extends JFrame
     private JFrame frame;
     private JPanel panel;
     private JButton button;
+    private int x;
+    private int y;
+    private int radius;
     
     private int count;
     /**
@@ -22,8 +26,13 @@ public class CircleFrame extends JFrame
      */
     public CircleFrame()
     {
-        this.component = new CircleComponent();
         this.count = 0;
+        String inx = JOptionPane.showInputDialog("Input x coordinate: ");
+        this.x = Integer.parseInt(inx);
+        String iny = JOptionPane.showInputDialog("Input y coordinate: ");
+        this.y = Integer.parseInt(iny);
+        String inr = JOptionPane.showInputDialog("Input radius: ");
+        this.radius = Integer.parseInt(inr);
         
         this.frame = new JFrame();
         this.panel = new JPanel();
@@ -33,7 +42,7 @@ public class CircleFrame extends JFrame
         
         this.frame.add(this.panel);
         
-        ActionListener listener = new ClickListener()
+        ActionListener listener = new ActionListener()
         {
             public void actionPerformed(ActionEvent event)
             {
@@ -53,11 +62,12 @@ public class CircleFrame extends JFrame
     
     public class ClickListener implements ActionListener
     {
-        public void action(ActionEvent event)
+        public void actionPerformed(ActionEvent event)
         {
             if(event.getSource() == button)
             {
-                
+                count++;
+                component = new CircleComponent(x, y, radius);
             }
         }
     }
