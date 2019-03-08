@@ -1,5 +1,5 @@
 import javax.swing.JPanel;
-
+import javax.swing.JButton;
 /**
  * The panel that contains the controls and indicators for the drawing editor
  * 
@@ -8,9 +8,10 @@ import javax.swing.JPanel;
  */
 public class ControlPanel extends JPanel
 {
-    //
-    // .. add additional instance variables
-    //
+    private JButton pick;
+    private JButton addc;
+    private JButton adds;
+    private JPanel panel;
     private DrawingPanel canvas;
 
     /**
@@ -19,9 +20,12 @@ public class ControlPanel extends JPanel
     public ControlPanel( DrawingPanel canvas)
     {
         this.canvas = canvas;
-        
         //
         // ... create and add buttons and selected color panel
+        this.pick = new JButton("Pick Color");
+        //this.panel = new JPanel(this.canvas.getColor());
+        this.addc = new JButton("Add Circle");
+        this.adds = new JButton("Add Square");
         //
         
     }

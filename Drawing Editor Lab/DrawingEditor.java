@@ -10,6 +10,7 @@ import java.awt.BorderLayout;
  */
 public class DrawingEditor extends JFrame
 {
+    private JFrame frame;
     /**
      * Default constructor for objects of class DrawingEditor
      */
@@ -25,9 +26,11 @@ public class DrawingEditor extends JFrame
         // read the BorderLayout class documentation for specifics
         
         //
-        // ... insert code here
+        this.frame = new JFrame();
+        this.frame.add(canvas, BorderLayout.CENTER);
+        this.frame.add(controls, BorderLayout.PAGE_END);
+        this.frame.setSize(500,500);
         //
-        
         this.pack();
         this.setVisible( true );
     }

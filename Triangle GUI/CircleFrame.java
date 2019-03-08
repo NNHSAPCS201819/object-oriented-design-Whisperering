@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import java.awt.Graphics2D;
 /**
  * Write a description of class CircleFrame here.
  *
@@ -19,36 +20,27 @@ public class CircleFrame extends JFrame
     private int x;
     private int y;
     private int radius;
-    
-    private int count;
+
     /**
      * Constructor for objects of class CircleFrame
      */
     public CircleFrame()
     {
-        this.count = 0;
-        String inx = JOptionPane.showInputDialog("Input x coordinate: ");
-        this.x = Integer.parseInt(inx);
-        String iny = JOptionPane.showInputDialog("Input y coordinate: ");
-        this.y = Integer.parseInt(iny);
-        String inr = JOptionPane.showInputDialog("Input radius: ");
-        this.radius = Integer.parseInt(inr);
-        
         this.frame = new JFrame();
         this.panel = new JPanel();
-        
+
         this.button = new JButton("Draw");
         this.panel.add(this.button);
-        
+
         this.frame.add(this.panel);
-        
+
         ActionListener listener = new ActionListener()
-        {
-            public void actionPerformed(ActionEvent event)
             {
-            }
-        };
-        
+                public void actionPerformed(ActionEvent event)
+                {
+                }
+            };
+
         this.frame.setSize(500, 500);
         this.frame.setTitle("Circle");
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,14 +51,19 @@ public class CircleFrame extends JFrame
     {
         JFrame frame = new CircleFrame();
     }
-    
+
     public class ClickListener implements ActionListener
     {
         public void actionPerformed(ActionEvent event)
         {
             if(event.getSource() == button)
             {
-                count++;
+                String inx = JOptionPane.showInputDialog("Input x coordinate: ");
+                x = Integer.parseInt(inx);
+                String iny = JOptionPane.showInputDialog("Input y coordinate: ");
+                y = Integer.parseInt(iny);
+                String inr = JOptionPane.showInputDialog("Input radius: ");
+                radius = Integer.parseInt(inr);
                 component = new CircleComponent(x, y, radius);
             }
         }
