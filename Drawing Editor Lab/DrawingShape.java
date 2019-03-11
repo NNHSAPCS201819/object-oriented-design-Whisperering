@@ -1,4 +1,5 @@
-
+import java.awt.Color;
+import java.awt.geom.Point2D;
 /**
  * Write a description of class DrawingShape here.
  *
@@ -7,27 +8,18 @@
  */
 public class DrawingShape
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    private Point2D.Double cent;
+    private double rad;
+    private Color col;
     /**
      * Constructor for objects of class DrawingShape
      */
-    public DrawingShape()
+    public DrawingShape(Point2D.Double center, double radius, Color color)
     {
-        // initialise instance variables
-        x = 0;
+        this.cent = center;
+        this.rad = radius;
+        this.col = color;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+
 }
