@@ -35,13 +35,9 @@ public class ControlPanel extends JPanel
         this.add(this.addc);
         this.add(this.adds);
         //
-        ActionListener listener = new ActionListener()
-        {
-            public void actionPerformed(ActionEvent event)
-            {
-            }
-        };
-    }
+        ClickListener clicked = new ClickListener();
+        this.pick.addClickListener(clicked);
+        
 
     //
     // ... create inner class that implements the ActionListener interface to respond to button clicks
