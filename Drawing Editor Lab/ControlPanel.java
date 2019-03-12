@@ -36,10 +36,12 @@ public class ControlPanel extends JPanel
         this.add(this.adds);
         //
         ClickListener clicked = new ClickListener();
-        this.pick.addClickListener(clicked);
+        this.pick.addActionListener(clicked);
+        this.addc.addActionListener(clicked);
+        this.adds.addActionListener(clicked);
         
 
-    //
+    }
     // ... create inner class that implements the ActionListener interface to respond to button clicks
     public class ClickListener implements ActionListener
     {
@@ -48,13 +50,15 @@ public class ControlPanel extends JPanel
             if(event.getSource() == pick)
             {
                 canvas.pickColor();
-
+                panel.setBackground(canvas.getColor());
             }
             else if(event.getSource() == addc)
             {
+                //canvas.addCircle();
             }
             else if(event.getSource() == adds)
             {
+                //canvas.getSquare();
             }
         }
     }
