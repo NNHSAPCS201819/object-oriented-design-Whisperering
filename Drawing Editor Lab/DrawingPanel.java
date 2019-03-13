@@ -3,8 +3,6 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
-
 /**
  * The panel in which draws all of the shapes in the drawing editor
  * 
@@ -21,7 +19,6 @@ public class DrawingPanel extends JPanel
      */
     public DrawingPanel()
     {
-         
     }
     
     /**

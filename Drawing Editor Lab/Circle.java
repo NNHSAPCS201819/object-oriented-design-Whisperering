@@ -9,13 +9,28 @@ import java.awt.Graphics2D;
  */
 public class Circle extends DrawingShape
 {
-    // instance variables - replace the example below with your own
-
+    private Point2D.Double cent;
+    private double rad;
+    private Color col;
     /**
      * Constructor for objects of class Circle
      */
     public Circle(Point2D.Double center, double radius, Color color)
     {
-        // initialise instance variables
+        super(center, radius, color);
+    }
+
+    @Override
+    public boolean isInside(Point2D.Double point)
+    {
+        // if((point.getX()<(cent.getX() + rad))&&(point.getX()>(cent.getX() - rad)) &&
+        // (point.getY()<(cent.getY() + rad))&&(point.getY()>(cent.getY() - rad)))
+        // {
+            // return true;
+        // }
+        return false;
+    }
+    public void draw(Graphics2D g2, boolean filled)
+    {
     }
 }

@@ -43,11 +43,6 @@ public class DrawingShape
     }
     public boolean isInside(Point2D.Double point)
     {
-        // if((point.getX()<(cent.getX() + rad))&&(point.getX()>(cent.getX() - rad)) &&
-        // (point.getY()<(cent.getY() + rad))&&(point.getY()>(cent.getY() - rad)))
-        // {
-            // return true;
-        // }
         return false;
     }
     public void draw(Graphics2D g2, boolean filled)
