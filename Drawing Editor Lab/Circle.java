@@ -9,9 +9,6 @@ import java.awt.Graphics2D;
  */
 public class Circle extends DrawingShape
 {
-    private Point2D.Double cent;
-    private double rad;
-    private Color col;
     /**
      * Constructor for objects of class Circle
      */
