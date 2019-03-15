@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class DrawingShape
+public abstract class DrawingShape
 {
     private Point2D.Double cent;
     private double rad;
@@ -41,11 +41,6 @@ public class DrawingShape
     {
         rad = r;
     }
-    public boolean isInside(Point2D.Double point)
-    {
-        return false;
-    }
-    public void draw(Graphics2D g2, boolean filled)
-    {
-    }
+    public abstract boolean isInside(Point2D.Double point);
+    public abstract void draw(Graphics2D g2, boolean filled);
 }

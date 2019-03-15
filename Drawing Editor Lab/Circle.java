@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
 /**
  * Write a description of class Circle here.
  *
@@ -20,14 +21,16 @@ public class Circle extends DrawingShape
     @Override
     public boolean isInside(Point2D.Double point)
     {
-        // if((point.getX()<(cent.getX() + rad))&&(point.getX()>(cent.getX() - rad)) &&
-        // (point.getY()<(cent.getY() + rad))&&(point.getY()>(cent.getY() - rad)))
-        // {
-            // return true;
-        // }
+        if((getCenter().distance(point.getX(), point.getY())) <
+        getRadius())
+        {
+            return true;
+        }
         return false;
     }
     public void draw(Graphics2D g2, boolean filled)
     {
+        g2.draw(new Ellipse2D.Double(getCenter().getX(), getCenter().getY(), getRadius()*2,
+        getRadius()*2));
     }
 }
