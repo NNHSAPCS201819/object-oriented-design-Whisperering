@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.geom.Point2D;
+import java.awt.geom.Point2D.Double;
 /**
  * The panel in which draws all of the shapes in the drawing editor
  * 
@@ -18,7 +18,8 @@ public class DrawingPanel extends JPanel
 {
     private Color fillColor;
     private ArrayList<DrawingShape> shapes;
-    private Point2D point;
+    private Point2D.Double point;
+    private Dimension size;
     /**
      * Default constructor for objects of class DrawingPanel
      */
@@ -29,6 +30,7 @@ public class DrawingPanel extends JPanel
         this.addMouseListener(listener);
         this.addMouseMotionListener(mlistener);
         shapes = new ArrayList<DrawingShape>();
+        point.setLocation((size.getHeight()/2),(size.getWidth()/2));
     }
     
     /**
@@ -55,20 +57,30 @@ public class DrawingPanel extends JPanel
     public Dimension getPreferredSize()
     {
         Dimension newSize = new Dimension(500, 500);
-        return newSize;
+        newSize = size;
+        return size;
     }
     
     public void addCircle()
     {
-        shapes.add(new Circle(0,0,0));
+        shapes.add(new Circle(point, Math.random() * 24 + 1,fillColor));
     }
     
     public void addSquare()
     {
+        shapes.add(new Square(point, Math.random() * 24 + 1,fillColor));
     }
     
     public void paintComponent(Graphics g)
     {
+        for(DrawingShape shape : shapes)
+        {
+            shape.draw( , true);
+            if(shapes.get(shape) == )
+            {
+                shape.draw( , false);
+            }
+        }
     }
     
     public class MouseClickListener implements MouseListener
