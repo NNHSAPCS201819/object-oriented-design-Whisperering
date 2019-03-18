@@ -20,20 +20,18 @@ public class DrawingPanel extends JPanel
 {
     private Color fillColor;
     private ArrayList<DrawingShape> shapes;
-    private Point2D.Double point;
-    private Dimension size;
     private DrawingShape selected;
     /**
      * Default constructor for objects of class DrawingPanel
      */
     public DrawingPanel()
     {
+        this.setBackground(Color.white);
         MouseListener listener = new MouseClickListener();
         MouseMotionListener mlistener = new MouseMovedListener();
         this.addMouseListener(listener);
         this.addMouseMotionListener(mlistener);
         shapes = new ArrayList<DrawingShape>();
-        point = new Point2D.Double((size.getHeight()/2),(size.getWidth()/2));
     }
 
     /**
@@ -45,7 +43,6 @@ public class DrawingPanel extends JPanel
     public void pickColor()
     {
         Color selectedColor = JColorChooser.showDialog( this, "select the fill color", this.fillColor );
-
         if( selectedColor != null )
         {
             this.fillColor = selectedColor;
@@ -60,19 +57,18 @@ public class DrawingPanel extends JPanel
     public Dimension getPreferredSize()
     {
         Dimension newSize = new Dimension(500, 500);
-        newSize = size;
-        return size;
+        return newSize;
     }
 
     public void addCircle()
     {
-        shapes.add(new Circle(point, Math.random() * 24 + 1,fillColor));
+        shapes.add(new Circle(new Point2D.Double(250,250), Math.random() * 49 + 1,fillColor));
         selected = shapes.get(shapes.size() - 1);
     }
 
     public void addSquare()
     {
-        shapes.add(new Square(point, Math.random() * 24 + 1,fillColor));
+        shapes.add(new Square(new Point2D.Double(250,250),Math.random() * 49 + 1,fillColor));
         selected = shapes.get(shapes.size() - 1);
     }
 
@@ -82,10 +78,13 @@ public class DrawingPanel extends JPanel
         Graphics2D g2 = (Graphics2D) g;
         for(DrawingShape shape : shapes)
         {
-            shape.draw(g2 , true);
             if(shape == selected)
             {
                 shape.draw(g2 , false);
+            }
+            else
+            {
+                shape.draw(g2 , true);
             }
         }
     }
@@ -106,7 +105,16 @@ public class DrawingPanel extends JPanel
 
         public void mousePressed(MouseEvent event)
         {
-            //
+            for(int i = shapes.size() -1; i >= 0; i--)
+            {
+                DrawingShape shape = shapes.get(i);
+                if(shape.isInside(new Point2D.Double(event.getX(), event.getY())))
+                {
+                    selected = shape;
+                    break;
+                }
+            }
+            repaint();
         }
 
         public void mouseReleased(MouseEvent event)

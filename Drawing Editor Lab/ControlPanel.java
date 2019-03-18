@@ -2,6 +2,7 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 /**
  * The panel that contains the controls and indicators for the drawing editor
  * 
@@ -55,10 +56,12 @@ public class ControlPanel extends JPanel
             else if(event.getSource() == addc)
             {
                 canvas.addCircle();
+                canvas.repaint();
             }
             else if(event.getSource() == adds)
             {
                 canvas.addSquare();
+                canvas.repaint();
             }
         }
     }

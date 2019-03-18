@@ -30,7 +30,13 @@ public class Square extends DrawingShape
     }
     public void draw(Graphics2D g2, boolean filled)
     {
-        g2.draw(new Rectangle2D.Double(getCenter().getX(), getCenter().getY(), getRadius()*2,
-        getRadius()*2));
+        g2.setPaint(getColor());
+        Rectangle2D.Double square = new Rectangle2D.Double(getCenter().getX() - getRadius(),
+        getCenter().getY() - getRadius(), getRadius()*2,getRadius()*2);
+        g2.draw(square);
+        if(filled == true)
+        {
+            g2.fill(square);
+        }
     }
 }
