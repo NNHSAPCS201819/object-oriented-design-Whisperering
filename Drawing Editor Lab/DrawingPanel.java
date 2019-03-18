@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.geom.Point2D;
 /**
  * The panel in which draws all of the shapes in the drawing editor
  * 
@@ -15,9 +16,9 @@ import java.awt.Graphics;
  */
 public class DrawingPanel extends JPanel
 {
-    Color fillColor;
+    private Color fillColor;
     private ArrayList<DrawingShape> shapes;
-
+    private Point2D point;
     /**
      * Default constructor for objects of class DrawingPanel
      */
@@ -27,6 +28,7 @@ public class DrawingPanel extends JPanel
         MouseMotionListener mlistener = new MouseMovedListener();
         this.addMouseListener(listener);
         this.addMouseMotionListener(mlistener);
+        shapes = new ArrayList<DrawingShape>();
     }
     
     /**
@@ -58,9 +60,10 @@ public class DrawingPanel extends JPanel
     
     public void addCircle()
     {
+        shapes.add(new Circle(0,0,0));
     }
     
-    public void Square()
+    public void addSquare()
     {
     }
     

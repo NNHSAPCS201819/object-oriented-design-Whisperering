@@ -54,11 +54,11 @@ public class ControlPanel extends JPanel
             }
             else if(event.getSource() == addc)
             {
-                //canvas.addCircle();
+                canvas.addCircle();
             }
             else if(event.getSource() == adds)
             {
-                //canvas.getSquare();
+                canvas.addSquare();
             }
         }
     }
