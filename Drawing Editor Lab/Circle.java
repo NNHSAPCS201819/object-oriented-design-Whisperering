@@ -18,6 +18,8 @@ public class Circle extends DrawingShape
         super(center, radius, color);
     }
 
+    // Checks if a given point is inside of the shape
+    // Implements DrawingShape's abstract method
     @Override
     public boolean isInside(Point2D.Double point)
     {
@@ -28,18 +30,8 @@ public class Circle extends DrawingShape
         }
         return false;
     }
-
-    public boolean isOnBorder(Point2D.Double point)
-    {
-        if(point.distance(getCenter().getX(), getCenter().getY()) 
-        >= (getRadius() - 5) && 
-        point.distance(getCenter().getX(), getCenter().getY()) <= getRadius())
-        {
-            return true;
-        }
-        return false;
-    }
-
+    // Draws the shape and checks if the shape is selected or not
+    // if not selected then fills the shape with color
     public void draw(Graphics2D g2, boolean filled)
     {
         g2.setPaint(getColor());

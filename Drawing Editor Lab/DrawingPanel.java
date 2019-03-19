@@ -40,6 +40,8 @@ public class DrawingPanel extends JPanel
      *  "Cancel"
      *
      */
+    //Allows one to change the color of te next shape by choosing
+    // desired color from the colo panel
     public void pickColor()
     {
         Color selectedColor = JColorChooser.showDialog( this, "select the fill color", this.fillColor );
@@ -48,30 +50,31 @@ public class DrawingPanel extends JPanel
             this.fillColor = selectedColor;
         }
     }
-
+    // Method returns current selected color when called
     public Color getColor()
     {
         return fillColor;
     }
-
+    // Resizes the to a better drawing panel size
     public Dimension getPreferredSize()
     {
         Dimension newSize = new Dimension(500, 500);
         return newSize;
     }
-
+    // Adds a Circle which is a DrawignShape
     public void addCircle()
     {
-        shapes.add(new Circle(new Point2D.Double(250,250), Math.random() * 49 + 1,fillColor));
+        shapes.add(new Circle(new Point2D.Double(250,250), Math.random() * 99 + 1,fillColor));
         selected = shapes.get(shapes.size() - 1);
     }
-
+    // Adds a Square which is a DrawignShape
     public void addSquare()
     {
-        shapes.add(new Square(new Point2D.Double(250,250),Math.random() * 49 + 1,fillColor));
+        shapes.add(new Square(new Point2D.Double(250,250),Math.random() * 99 + 1,fillColor));
         selected = shapes.get(shapes.size() - 1);
     }
-
+    // Paints shapes and chsck to see which shape is selected so
+    // it is an outline
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
@@ -105,6 +108,7 @@ public class DrawingPanel extends JPanel
 
         public void mousePressed(MouseEvent event)
         {
+            // Changes selected shape
             for(int i = shapes.size() -1; i >= 0; i--)
             {
                 DrawingShape shape = shapes.get(i);
@@ -126,7 +130,7 @@ public class DrawingPanel extends JPanel
         public void mouseMoved(MouseEvent event)
         {
         }
-
+        // Drags selected shape to a new spot
         public void mouseDragged(MouseEvent event)
         {
             selected.move(event.getX(), event.getY());
