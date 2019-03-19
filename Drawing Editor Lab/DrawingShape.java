@@ -42,5 +42,6 @@ public abstract class DrawingShape
         rad = r;
     }
     public abstract boolean isInside(Point2D.Double point);
+    public abstract boolean isOnBorder(Point2D.Double point);
     public abstract void draw(Graphics2D g2, boolean filled);
 }

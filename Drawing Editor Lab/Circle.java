@@ -28,11 +28,23 @@ public class Circle extends DrawingShape
         }
         return false;
     }
+
+    public boolean isOnBorder(Point2D.Double point)
+    {
+        if(point.distance(getCenter().getX(), getCenter().getY()) 
+        >= (getRadius() - 5) && 
+        point.distance(getCenter().getX(), getCenter().getY()) <= getRadius())
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void draw(Graphics2D g2, boolean filled)
     {
         g2.setPaint(getColor());
         Ellipse2D.Double circ = new Ellipse2D.Double(getCenter().getX() - getRadius(),
-        getCenter().getY() - getRadius(), getRadius()*2,getRadius()*2);
+                getCenter().getY() - getRadius(), getRadius()*2,getRadius()*2);
         g2.draw(circ);
         if(filled == true)
         {

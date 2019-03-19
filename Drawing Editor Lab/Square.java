@@ -17,8 +17,6 @@ public class Square extends DrawingShape
     {
         super(center, radius, color);
     }
-    
-    @Override
     public boolean isInside(Point2D.Double point)
     {
         if((point.getX()<(getCenter().getX() + getRadius()))&&(point.getX()>(getCenter().getX() - getRadius())) &&
@@ -28,6 +26,12 @@ public class Square extends DrawingShape
         }
         return false;
     }
+    // public boolean isOnBorder(Point2D.Double point)
+    // {
+        // if(point)
+        // {
+        // }
+    // }
     public void draw(Graphics2D g2, boolean filled)
     {
         g2.setPaint(getColor());

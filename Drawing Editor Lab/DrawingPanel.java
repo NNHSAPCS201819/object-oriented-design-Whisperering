@@ -129,7 +129,8 @@ public class DrawingPanel extends JPanel
 
         public void mouseDragged(MouseEvent event)
         {
-            //
+            selected.move(event.getX(), event.getY());
+            repaint();
         }
     }
 }
