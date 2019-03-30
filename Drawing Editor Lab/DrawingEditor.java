@@ -28,7 +28,6 @@ public class DrawingEditor extends JFrame
         // canvas and controls panels added to the frame
         this.add(canvas, BorderLayout.CENTER);
         this.add(controls, BorderLayout.PAGE_END);
-        this.setSize(500,500);
         //
         this.pack();
         this.setVisible( true );

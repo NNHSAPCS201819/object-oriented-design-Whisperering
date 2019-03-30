@@ -27,6 +27,7 @@ public class DrawingPanel extends JPanel
     public DrawingPanel()
     {
         this.setBackground(Color.white);
+        this.fillColor = Color.black;
         MouseListener listener = new MouseClickListener();
         MouseMotionListener mlistener = new MouseMovedListener();
         this.addMouseListener(listener);
@@ -114,7 +115,7 @@ public class DrawingPanel extends JPanel
                 DrawingShape shape = shapes.get(i);
                 if(shape.isInside(new Point2D.Double(event.getX(), event.getY())))
                 {
-                    selected = shape;
+                    selected = shape; 
                     break;
                 }
             }
@@ -133,7 +134,7 @@ public class DrawingPanel extends JPanel
         // Drags selected shape to a new spot
         public void mouseDragged(MouseEvent event)
         {
-            selected.move(event.getX(), event.getY());
+            selected.move(event.getX(), event.getY()); 
             repaint();
         }
     }
